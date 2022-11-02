@@ -21,7 +21,7 @@ struct ContentView: View {
                 Text("맛집월드컵")
             }.tag(1)
             
-            Text("맛집리스트").tabItem {
+            RestaurantListView().tabItem {
                 Image(systemName: "map.fill")
                 Text("맛집리스트")
             }.tag(2)

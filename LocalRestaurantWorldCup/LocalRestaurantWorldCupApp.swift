@@ -10,8 +10,11 @@ import SwiftUI
 @main
 struct LocalRestaurantWorldCupApp: App {
     let environmentObject = RestaurantModelData()
+   
+    
     var body: some Scene {
-        WindowGroup {
+        environmentObject.restaurants = loadJson("restaurantData.json")!
+        return WindowGroup {
             ContentView().environmentObject(environmentObject)
         }
     }

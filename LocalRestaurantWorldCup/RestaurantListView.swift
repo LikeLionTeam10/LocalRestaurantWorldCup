@@ -8,8 +8,8 @@
 import SwiftUI
 
 //맛집리스트가 우선적으로 나오고
-    //추천한 사람을 기준으로 두개씩 들어가게 섹션
-    //리스트에는 도시정보, 사진, 이름
+//추천한 사람을 기준으로 두개씩 들어가게 섹션
+//리스트에는 도시정보, 사진, 이름
 
 //맛집리스트를 클릭하면 맵으로
 
@@ -19,32 +19,17 @@ struct RestaurantListView: View {
     
     @EnvironmentObject var restaurantModelData: RestaurantModelData
     
+    
     var body: some View {
-        let _ = print(restaurantModelData.restaurants)
-        
-        return NavigationView {
+        NavigationView {
             List {
-                Section {
+                ForEach($restaurantModelData.restaurants) { $restaurant in
                     NavigationLink {
-                        MapView()
+                        MapView(restaurant: $restaurant)
                     } label: {
-                        Text("총각네손칼국수")
-                    }
-                    
-                    NavigationLink {
-                        Text("승준")
-                    } label: {
-                        Text("Froth")
-                    }
-
-                } header: {
-                    Label {
-                        Text("승준픽")
-                    } icon: {
-                        Image(systemName: "sun.max.fill")
+                        Text(restaurant.name)
                     }
                 }
-
             }
         }
     }
