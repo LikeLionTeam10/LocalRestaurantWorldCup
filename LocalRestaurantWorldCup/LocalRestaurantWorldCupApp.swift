@@ -9,9 +9,10 @@ import SwiftUI
 
 @main
 struct LocalRestaurantWorldCupApp: App {
+    let environmentObject = RestaurantModelData()
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView().environmentObject(environmentObject)
         }
     }
 }

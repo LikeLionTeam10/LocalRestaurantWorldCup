@@ -16,8 +16,13 @@ import SwiftUI
 //json 받아오면
 
 struct RestaurantListView: View {
+    
+    @EnvironmentObject var restaurantModelData: RestaurantModelData
+    
     var body: some View {
-        NavigationView {
+        let _ = print(restaurantModelData.restaurants)
+        
+        return NavigationView {
             List {
                 Section {
                     NavigationLink {
@@ -45,8 +50,9 @@ struct RestaurantListView: View {
     }
 }
 
-struct RestaurantListView_Previews: PreviewProvider {
-    static var previews: some View {
-        RestaurantListView()
-    }
-}
+//struct RestaurantListView_Previews: PreviewProvider {
+//
+//    static var previews: some View {
+//        RestaurantListView().environmentObject()
+//    }
+//}
